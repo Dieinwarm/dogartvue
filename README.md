@@ -1,24 +1,33 @@
-# 舔狗的艺术
-学习vue-cli的成果 🥝
+# Dogart 舔狗的艺术
+Learn vue-cli project 🥝
 
 vue / vue-router / elementUI
 
-预览地址：https://dogart.me
+demo：https://dogart.me
 
-## 使用方式：
+## How to use：
 
-安装vue-cli （见官网安装方式）
+- install npm   
+   url: https://nodejs.org/en/download/
 
-拉取项目到本地
+- install Vue-Cli  
+   url: https://cli.vuejs.org/zh/guide/
 
-用vue-cli 导入项目
+- clone code  
 
-执行 npm update 更新依赖
+- Switch to the project directory  
+  `cmd: cd X:/dogartvue/`
 
-使用 vue ui 预览、编译项目
+- project directory update npm  
+   `cmd: install npm`
 
-编译后在dist目录里，可以导入其他项目二次开发实现前后端分离的项目
+- start vue-cli  
+   `cmd: vue ui`
+   
+- import project  
+   
+- Edit code and build  
+   find dist directory in your project directory,upload your server
 
-## 不想修改和编译
+- enjoy your dogart 🎉!
 
-你可以点击 [这里](https://github.com/coolseamonster/dogartvue/releases/download/zip/dist.zip) 下载编译好的文件（不推荐）
