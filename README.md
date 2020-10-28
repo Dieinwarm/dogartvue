@@ -1,6 +1,6 @@
 # Dogart 舔狗的艺术
 
-- Learn vue-cli project 🥝  
+- project for learn vue-cli 🥝  
 - vue / vue-router / elementUI  
 - demo：https://dogart.me  
 
