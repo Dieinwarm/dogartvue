@@ -1,9 +1,8 @@
 # Dogart 舔狗的艺术
-Learn vue-cli project 🥝
 
-vue / vue-router / elementUI
-
-demo：https://dogart.me
+- Learn vue-cli project 🥝  
+- vue / vue-router / elementUI  
+- demo：https://dogart.me  
 
 ## How to use：
 
@@ -27,7 +26,7 @@ demo：https://dogart.me
 - import project  
    
 - Edit code and build  
-   find dist directory in your project directory,upload your server
+   find dist directory in your project directory, upload to your server
 
 - enjoy your dogart 🎉!
 
