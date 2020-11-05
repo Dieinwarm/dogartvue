@@ -38,6 +38,13 @@
     padding-top: 1.5rem;
     text-align: center;
 }
+.is-disabled span {
+    filter:blur(2px);
+    -webkit-filter:blur(2px);
+    -moz-filter:blur(2px);
+    -ms-filter:blur(2px);
+    -o-filter:blur(2px);
+}
 .lickCount {
     font-size: 12px;
     padding-top: 2rem;

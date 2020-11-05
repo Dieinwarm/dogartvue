@@ -16,9 +16,8 @@
 			</el-col>
 		</el-row>
 		<el-dialog title="API" :visible.sync="apiDialog" custom-class="dialog" top="25vh">
+			<p>公共api正在开发中，完善后更新api列表</p>
 			<p>目前采用的网络api，它们分别来自：</p>
-			<p>https://api.uixsj.cn  提供了 舔狗の语 接口（其实是彩虹屁接口，两者都差不多）</p>
-			<p>https://alapi.net  提供了 舔狗日记 接口</p>
 			<p>https://heweather.net  提供了 舔狗日记的天气、城市 接口</p>
 			<br />
 			<p>对以上接口服务表示感谢</p>
@@ -34,9 +33,12 @@
 			<div style="text-align: center;"><img src="../../public/images/wechat.jpg" width="60%" /></div>
 		</el-dialog>
 		<el-dialog title="更新记录" :visible.sync="updateDialog" custom-class="dialog" top="25vh">
+			<h3>2020.11.01</h3>
+			<p>数据本地化，后端采用Thinkphp6</p>
+			<p>后端仍在完善，完善后开源</p>
 			<h3>2020.6.11</h3>
-			<p>舔狗的艺术 上线</p>
-			<p>开源到Github</p>
+			<p>舔狗的艺术 上线，数据全部来自网络api</p>
+			<p>前端开源到Github</p>
 		</el-dialog>
 		<div class="footer">
 			<div style="line-height:30px;">
@@ -46,7 +48,7 @@
 				<el-link type="primary" class="footer-link" :underline="false" @click="updateDialog = true">更新日志</el-link>
 			</div>
 			<div class="footer-text">     .</div>
-			<div class="footer-text" style="color: transparent;">I will always miss you like a darling.</div>
+			<div class="footer-text" style="color: transparent;">I feeling like I'm falling.</div>
 		</div>
 	</div>
 </template>

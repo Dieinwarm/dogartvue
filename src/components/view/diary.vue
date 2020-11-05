@@ -12,6 +12,7 @@
 		</div>
 		<div class="buttons">
 			<el-button type="primary" @click="getDiary" round>再来一份</el-button>
+			<el-button type="success" @click="tips" round>投稿</el-button>
 		</div>
 	</div>
 </template>
@@ -32,8 +33,8 @@
 		methods: {
 			getDiary: function() {
 				let that = this;
-				this.$axios.get("https://v1.alapi.cn/api/dog").then(function(res) {
-					that.content = res.data.data.content;
+				this.$axios.post("http://127.0.0.1/diary").then(function(res) {
+					that.content = res.data.content;
 				}).catch(err => {
 					console.log(err);
 				});
@@ -78,6 +79,12 @@
 				}
 				this.weatherstr = year + '年' + month + '月' + day + '日 ' + city;
 				this.city =  cond + ' / ' + cloud + '℃';
+			},
+			tips() {
+				this.$message({
+					message: "coming soon~~",
+					type: "success",
+				});
 			}
 		}
 	}
