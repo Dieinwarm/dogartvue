@@ -82,7 +82,7 @@
 			},
 			tips() {
 				this.$message({
-					message: "coming soon~~",
+					message: "coming soon~",
 					type: "success",
 				});
 			}
