@@ -17,23 +17,28 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
-export default{
-	setup(){
-		const path = ref("/words");
-		const nav_menu_data = reactive(
-			[{
-				title: '舔狗の语',
-				path: '/words'
-			}, {
-				title: '舔狗日记',
-				path: '/diary'
-			}]
-		);
-		return {
-			path,
-			nav_menu_data
+	import { onMounted, ref, reactive } from 'vue';
+	import { useRouter } from "vue-router";
+	export default{
+		setup(){
+			const path = ref("");
+			const nav_menu_data = reactive(
+				[{
+					title: '舔狗の语',
+					path: '/words'
+				}, {
+					title: '舔狗日记',
+					path: '/diary'
+				}]
+			);
+			onMounted(() => {
+				const router = useRouter();
+				path.value = router.currentRoute.value.path;
+			})
+			return {
+				path,
+				nav_menu_data
+			}
 		}
 	}
-}
 </script>
