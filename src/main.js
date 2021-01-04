@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue';
 import { router } from './router';
+import axios from 'axios';
 import './assets/base.css';
 /** 加载组件 **/
 import {
@@ -185,5 +186,15 @@ components.forEach(component => {
 plugins.forEach(plugin => {
     app.use(plugin);
 });
+
+let protocol = window.location.protocol;
+let host = window.location.host;
+let reg = /^localhost+/;
+if(reg.test(host)) {
+    axios.defaults.baseURL = 'http://127.0.0.1/';
+} else {
+    axios.defaults.baseURL = protocol + "//" + host;
+}
+app.config.globalProperties.$axios = axios;
 app.use(router);
 app.mount('#app');

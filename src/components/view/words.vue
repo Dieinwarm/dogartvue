@@ -16,22 +16,42 @@
 </template>
 
 <script>
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch, getCurrentInstance } from 'vue';
 import { gsap } from 'gsap';
 
 export default {
     setup(){
+        const { ctx } = getCurrentInstance();
+        const wordid = ref(0);
+        const content = ref("");
         const lickCount = ref(0);
         const tweenedNumber = ref(0);
         const clickLick = ref(false);
-        const content = ref("asdasda打算大大大大人");
         const getWords = () => {
-
+            ctx.$axios.get("/words").then(res => {
+                wordid.value = res.data.id;
+                content.value = res.data.content;
+                lickCount.value = res.data.lickCount;
+                clickLick.value = false;
+            }).catch((err) => {
+                console.log(err);
+            });
         };
         const lick = () => {
-            clickLick.value = true;
-            lickCount.value += 20 ;
+            ctx.$axios.post("/wordslick", {
+				id: wordid.value,
+			})
+			.then(function (res) {
+                clickLick.value = true;
+                lickCount.value = res.data.lickCount;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
         }
+        onMounted(() => {
+            getWords();
+        })
         const animatedNumber = computed(() => {
             return tweenedNumber.value.toFixed(0);
         });
