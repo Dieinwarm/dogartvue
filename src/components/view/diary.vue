@@ -22,7 +22,8 @@ import { onMounted, ref, getCurrentInstance } from 'vue'
 
 export default {
 	setup(){
-		const ctx = getCurrentInstance();
+		const internalInstance = getCurrentInstance()?.appContext.config.globalProperties;
+		const axios = internalInstance.$axios;
 		const citystr = ref("");
 		const content = ref("");
 		const weatherstr = ref("");
@@ -47,7 +48,7 @@ export default {
 			if (city == '' || dayDiff >= 1) {
 				let weather = {};
 				for (let i = 0; i < weatherKeys.length; i++) {
-					ctx.$axios.get('https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=' + weatherKeys[i]).then(res => {
+					axios.get('https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=' + weatherKeys[i]).then(res => {
 						weather = res.data.HeWeather6[0];
 						city = weather.basic.parent_city || '';
 						cloud = weather.now.fl || '';
@@ -68,7 +69,7 @@ export default {
 			weatherstr.value =  cond + ' / ' + cloud + '℃';
 		}
 		const getDiary = () => {
-			ctx.$axios.get("/diary").then(res => {
+			axios.get("/diary").then(res => {
 				content.value = res.data.content;
 			}).catch(err => {
 				console.log(err);

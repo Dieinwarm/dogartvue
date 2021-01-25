@@ -17,7 +17,7 @@
 			<p>你可以投稿你认为适当的内容，可以是正常的情话，当然也可以是土味情话。为了防止可能混入令人不适的内容，
 				后台会对每次提交的内容进行审核，通过方予展示，如果被判断这个句子疑似有 暴恐违禁、政治敏感、恶意推广、低俗辱骂、低质灌水 等倾向，
 				则会自动拒绝这个句子进入内容库。当然这可能造成误伤，但是为了保持内容库的清洁，还请见谅。</p>
-			<el-form :model="wordsForm">
+			<el-form :model="wordsForm" ref="wordsForms" :rules="rules">
 				<el-form-item prop="words">
 					<el-input type="textarea" :rows="9" placeholder="请输入内容" v-model="wordsForm.words"></el-input>
 				</el-form-item>
@@ -38,19 +38,27 @@ import { gsap } from 'gsap';
 
 export default {
 	setup(){
-		const ctx = getCurrentInstance();
+		const ctx = getCurrentInstance()?.appContext.config.globalProperties;
+		const axios = ctx.$axios;
 		const wordid = ref(0);
 		const content = ref("");
 		const lickCount = ref(0);
 		const tweenedNumber = ref(0);
 		const clickLick = ref(false);
 		const sendWordDialog = ref(false);
+		const wordsForms = ref();
 		const wordsForm = reactive({
 			words: ""
+		});
+		const rules = reactive({
+			words: [
+				{ required: true, message: '不说点什么怎么舔呢', trigger: 'blur' },
+				{ min: 8, max: 140, message: '你的投稿字符长度达不到合格的舔狗标准(8-140字)', trigger: 'blur' }
+			]
 		})
 
 		const getWords = () => {
-			ctx.$axios.get("/words").then(res => {
+			axios.get("/words").then(res => {
 				wordid.value = res.data.id;
 				content.value = res.data.content;
 				lickCount.value = res.data.lickCount;
@@ -60,7 +68,7 @@ export default {
 			});
 		};
 		const lick = () => {
-			ctx.$axios.post("/wordslick", {
+			axios.post("/wordslick", {
 				id: wordid.value,
 			}).then(res => {
 				clickLick.value = true;
@@ -70,15 +78,22 @@ export default {
 			});
 		}
 		const sendWord = () => {
-			ctx.$axios.post("/addWords",wordsForm).then(() => {
-				ctx.$message({
-					message: '恭喜你，提交成功，审核后即可显示',
-					type: 'success'
-				});
-				sendWordDialog.value = false;
-				wordsForm.words = "";
-			}).catch((err) => {
-				console.log(err);
+			wordsForms.value.validate((valid) => {
+				if (valid) {
+					axios.post("/addWords",wordsForm).then(() => {
+						ctx.$message({
+							message: '恭喜你提交成功，审核后即可显示',
+							type: 'success'
+						});
+						wordsForms.value.resetFields();
+						sendWordDialog.value = false;
+					}).catch((err) => {
+						console.log(err);
+					});
+				} else {
+					console.log('error submit!!');
+					return false;
+				}
 			});
 		}
 
@@ -100,6 +115,8 @@ export default {
 			lick,
 			sendWordDialog,
 			wordsForm,
+			wordsForms,
+			rules,
 			sendWord,
 			animatedNumber
 		}
