@@ -24,8 +24,8 @@
 			</el-form>
 			<template #footer>
 				<span class="dialog-footer">
-					<el-button @click="sendWordDialog = false">取 消</el-button>
-					<el-button type="primary" @click="sendWord">确 定</el-button>
+					<el-button @click="sendWordDialog = false">取消</el-button>
+					<el-button type="primary" @click="sendWord">确定</el-button>
 				</span>
 			</template>
 		</el-dialog>
