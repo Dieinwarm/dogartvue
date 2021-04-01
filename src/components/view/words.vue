@@ -62,7 +62,7 @@ export default {
 				wordid.value = res.data.id;
 				content.value = res.data.content;
 				lickCount.value = res.data.lickCount;
-				clickLick.value = false;
+				clickLick.value = res.data.lickDisable;
 			}).catch((err) => {
 				console.log(err);
 			});
