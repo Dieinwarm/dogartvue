@@ -4,18 +4,20 @@ import { router } from './router';
 import axios from 'axios';
 import './assets/base.css';
 /** 加载组件 **/
-import { ElRow } from 'element-plus';
-import { ElCol } from 'element-plus';
-import { ElHeader } from 'element-plus';
-import { ElMenu } from 'element-plus';
-import { ElMenuItem } from 'element-plus';
-import { ElButton } from 'element-plus';
-import { ElLink } from 'element-plus';
-import { ElDialog } from 'element-plus';
-import { ElCard } from 'element-plus';
-import { ElForm } from 'element-plus';
-import { ElFormItem } from 'element-plus';
-import { ElInput } from 'element-plus';
+import { 
+	ElRow,
+	ElCol,
+	ElHeader,
+	ElMenu,
+	ElMenuItem,
+	ElButton,
+	ElLink,
+	ElDialog,
+	ElCard,
+	ElForm,
+	ElFormItem,
+	ElInput 
+} from 'element-plus';
   
 const app = createApp(App);
 
