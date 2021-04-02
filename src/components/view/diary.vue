@@ -11,8 +11,8 @@
 			</el-card>
 		</div>
 		<div class="buttons">
-			<el-button type="primary" @click="getDiary" round>再来一份</el-button>
-			<el-button type="success" @click="addDiary" round>投稿</el-button>
+			<el-button type="primary" size="medium" @click="getDiary" round>再来一份</el-button>
+			<el-button type="success" size="medium" @click="addDiary" round>投稿</el-button>
 		</div>
 	</div>
 </template>

@@ -50,6 +50,13 @@ body{
     -ms-filter:blur(2px);
     -o-filter:blur(2px);
 }
+.textBlur{
+    filter:blur(2px);
+    -webkit-filter:blur(2px);
+    -moz-filter:blur(2px);
+    -ms-filter:blur(2px);
+    -o-filter:blur(2px);
+}
 .lickCount {
     font-size: 12px;
     padding-top: 2rem;
@@ -73,9 +80,6 @@ body{
     display: flex;
     align-items: center;
     justify-content:center
-}
-.el-dialog__body{
-    color: #808B96;
 }
 
 
