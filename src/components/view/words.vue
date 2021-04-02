@@ -15,7 +15,8 @@
 		</div>
 		<el-dialog title="投稿 舔狗の语" v-model="sendWordDialog" custom-class="send_dialog">
 			<p>你可以投稿你认为适当的内容，可以是正常的情话，当然也可以是土味情话。为了防止可能混入令人不适的内容，
-				后台会对每次提交的内容进行审核，通过方予展示，如果被判断这个句子疑似有 暴恐违禁、政治敏感、恶意推广、低俗辱骂、低质灌水 等倾向，
+				后台会对每次提交的进行<el-link type="primary" href="https://ai.baidu.com/tech/textcensoring">文本内容审核</el-link>，通过方予展示，
+				如果被判断这个句子疑似有 暴恐违禁、政治敏感、恶意推广、低俗辱骂、低质灌水 等倾向，
 				则会拒绝这个句子进入内容库。当然这可能造成误伤，但是为了保持内容库的清洁，还请见谅。</p>
 			<el-form :model="wordsForm" ref="wordsForms" :rules="rules">
 				<el-form-item prop="words">
@@ -34,6 +35,7 @@
 
 <script>
 import { computed, onMounted, ref, reactive, watch, getCurrentInstance } from 'vue';
+import { ElMessage } from 'element-plus';
 import { gsap } from 'gsap';
 
 export default {
@@ -80,18 +82,18 @@ export default {
 		const sendWord = () => {
 			wordsForms.value.validate((valid) => {
 				if (valid) {
-					axios.post("/addWords",wordsForm).then(() => {
-						ctx.$message({
-							message: '恭喜你提交成功，审核后即可显示',
-							type: 'success'
-						});
-						wordsForms.value.resetFields();
-						sendWordDialog.value = false;
+					axios.post("/addWords",wordsForm).then((res) => {
+						if(res.data.conclusionType == 1){
+							ElMessage.success('恭喜你提交成功，审核后即可显示');
+							wordsForms.value.resetFields();
+							sendWordDialog.value = false;
+						}else{
+							ElMessage.error('你写的东西有点不对头');
+						}
 					}).catch((err) => {
 						console.log(err);
 					});
 				} else {
-					console.log('error submit!!');
 					return false;
 				}
 			});

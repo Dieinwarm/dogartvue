@@ -74,6 +74,10 @@ body{
     align-items: center;
     justify-content:center
 }
+.el-dialog__body{
+    color: #808B96;
+    font-size: .7rem;
+}
 
 
 @media screen and (max-width: 768px) {

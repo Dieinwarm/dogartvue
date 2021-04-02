@@ -4,188 +4,33 @@ import { router } from './router';
 import axios from 'axios';
 import './assets/base.css';
 /** 加载组件 **/
-import {
-	ElAlert,
-	ElAside,
-	ElAutocomplete,
-	ElAvatar,
-	ElBacktop,
-	ElBadge,
-	ElBreadcrumb,
-	ElBreadcrumbItem,
-	ElButton,
-	ElButtonGroup,
-	ElCalendar,
-	ElCard,
-	ElCarousel,
-	ElCarouselItem,
-	ElCascader,
-	ElCascaderPanel,
-	ElCheckbox,
-	ElCheckboxButton,
-	ElCheckboxGroup,
-	ElCol,
-	ElCollapse,
-	ElCollapseItem,
-	ElCollapseTransition,
-	ElColorPicker,
-	ElContainer,
-	ElDatePicker,
-	ElDialog,
-	ElDivider,
-	ElDrawer,
-	ElDropdown,
-	ElDropdownItem,
-	ElDropdownMenu,
-	ElFooter,
-	ElForm,
-	ElFormItem,
-	ElHeader,
-	ElIcon,
-	ElImage,
-	ElInput,
-	ElInputNumber,
-	ElLink,
-	ElMain,
-	ElMenu,
-	ElMenuItem,
-	ElMenuItemGroup,
-	ElOption,
-	ElOptionGroup,
-	ElPageHeader,
-	ElPagination,
-	ElPopconfirm,
-	ElPopover,
-	ElPopper,
-	ElProgress,
-	ElRadio,
-	ElRadioButton,
-	ElRadioGroup,
-	ElRate,
-	ElRow,
-	ElScrollbar,
-	ElSelect,
-	ElSlider,
-	ElStep,
-	ElSteps,
-	ElSubmenu,
-	ElSwitch,
-	ElTabPane,
-	ElTable,
-	ElTableColumn,
-	ElTabs,
-	ElTag,
-	ElTimePicker,
-	ElTimeSelect,
-	ElTimeline,
-	ElTimelineItem,
-	ElTooltip,
-	ElTransfer,
-	ElTree,
-	ElUpload,
-	ElInfiniteScroll,
-	ElLoading,
-	ElMessage,
-	ElMessageBox,
-	ElNotification
-} from 'element-plus';
+import { ElRow } from 'element-plus';
+import { ElCol } from 'element-plus';
+import { ElHeader } from 'element-plus';
+import { ElMenu } from 'element-plus';
+import { ElMenuItem } from 'element-plus';
+import { ElButton } from 'element-plus';
+import { ElLink } from 'element-plus';
+import { ElDialog } from 'element-plus';
+import { ElCard } from 'element-plus';
+import { ElForm } from 'element-plus';
+import { ElFormItem } from 'element-plus';
+import { ElInput } from 'element-plus';
   
-const components = [
-	ElAlert,
-	ElAside,
-	ElAutocomplete,
-	ElAvatar,
-	ElBacktop,
-	ElBadge,
-	ElBreadcrumb,
-	ElBreadcrumbItem,
-	ElButton,
-	ElButtonGroup,
-	ElCalendar,
-	ElCard,
-	ElCarousel,
-	ElCarouselItem,
-	ElCascader,
-	ElCascaderPanel,
-	ElCheckbox,
-	ElCheckboxButton,
-	ElCheckboxGroup,
-	ElCol,
-	ElCollapse,
-	ElCollapseItem,
-	ElCollapseTransition,
-	ElColorPicker,
-	ElContainer,
-	ElDatePicker,
-	ElDialog,
-	ElDivider,
-	ElDrawer,
-	ElDropdown,
-	ElDropdownItem,
-	ElDropdownMenu,
-	ElFooter,
-	ElForm,
-	ElFormItem,
-	ElHeader,
-	ElIcon,
-	ElImage,
-	ElInput,
-	ElInputNumber,
-	ElLink,
-	ElMain,
-	ElMenu,
-	ElMenuItem,
-	ElMenuItemGroup,
-	ElOption,
-	ElOptionGroup,
-	ElPageHeader,
-	ElPagination,
-	ElPopconfirm,
-	ElPopover,
-	ElPopper,
-	ElProgress,
-	ElRadio,
-	ElRadioButton,
-	ElRadioGroup,
-	ElRate,
-	ElRow,
-	ElScrollbar,
-	ElSelect,
-	ElSlider,
-	ElStep,
-	ElSteps,
-	ElSubmenu,
-	ElSwitch,
-	ElTabPane,
-	ElTable,
-	ElTableColumn,
-	ElTabs,
-	ElTag,
-	ElTimePicker,
-	ElTimeSelect,
-	ElTimeline,
-	ElTimelineItem,
-	ElTooltip,
-	ElTransfer,
-	ElTree,
-	ElUpload
-]
-  
-const plugins = [
-	ElInfiniteScroll,
-	ElLoading,
-	ElMessage,
-	ElMessageBox,
-	ElNotification,
-]
-
 const app = createApp(App);
-components.forEach(component => {
-	app.component(component.name, component);
-});
-plugins.forEach(plugin => {
-	app.use(plugin);
-});
+
+app.use(ElRow);
+app.use(ElCol);
+app.use(ElHeader);
+app.use(ElMenu);
+app.use(ElMenuItem);
+app.use(ElButton);
+app.use(ElLink);
+app.use(ElDialog);
+app.use(ElCard);
+app.use(ElForm);
+app.use(ElFormItem);
+app.use(ElInput);
 
 let protocol = window.location.protocol;
 let host = window.location.host;

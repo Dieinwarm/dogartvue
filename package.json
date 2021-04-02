@@ -10,16 +10,16 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
-    "element-plus": "^1.0.1-beta.27",
+    "element-plus": "^1.0.2-beta.36",
     "gsap": "^3.6.1",
-    "vue": "^3.0.10",
+    "vue": "^3.0.11",
     "vue-router": "^4.0.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.12",
     "@vue/cli-plugin-eslint": "^4.5.12",
     "@vue/cli-service": "^4.5.12",
-    "@vue/compiler-sfc": "^3.0.10",
+    "@vue/compiler-sfc": "^3.0.11",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
