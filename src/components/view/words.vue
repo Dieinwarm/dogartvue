@@ -16,7 +16,7 @@
 		<el-dialog title="投稿 舔狗の语" v-model="sendWordDialog" custom-class="send_dialog">
 			<p>你可以投稿你认为适当的内容，可以是正常的情话，当然也可以是土味情话。为了防止可能混入令人不适的内容，
 				后台会对每次提交的内容进行审核，通过方予展示，如果被判断这个句子疑似有 暴恐违禁、政治敏感、恶意推广、低俗辱骂、低质灌水 等倾向，
-				则会自动拒绝这个句子进入内容库。当然这可能造成误伤，但是为了保持内容库的清洁，还请见谅。</p>
+				则会拒绝这个句子进入内容库。当然这可能造成误伤，但是为了保持内容库的清洁，还请见谅。</p>
 			<el-form :model="wordsForm" ref="wordsForms" :rules="rules">
 				<el-form-item prop="words">
 					<el-input type="textarea" :rows="9" placeholder="请输入内容" v-model="wordsForm.words"></el-input>
@@ -24,8 +24,8 @@
 			</el-form>
 			<template #footer>
 				<span class="dialog-footer">
-					<el-button @click="sendWordDialog = false">取 消</el-button>
-					<el-button type="primary" @click="sendWord">确 定</el-button>
+					<el-button @click="sendWordDialog = false">取消</el-button>
+					<el-button type="primary" @click="sendWord">确定</el-button>
 				</span>
 			</template>
 		</el-dialog>
