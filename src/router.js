@@ -1,7 +1,9 @@
 import { createRouter,createWebHashHistory } from 'vue-router';
-import Index from './components/index.vue'
-import Words from './components/view/words.vue'
-import Diary from './components/view/diary.vue'
+import Index from './components/index'
+import Words from './components/view/words'
+import Diary from './components/view/diary'
+import Admin from './components/view/admin'
+import Login from './components/view/login'
 
 export const router = createRouter({
     history: createWebHashHistory(),
@@ -23,6 +25,16 @@ export const router = createRouter({
                     component: Diary,
                 }
             ]
-        }
+        },
+        {
+            path: '/admin',
+            name: 'admin',
+            component: Admin
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
     ]
 });
