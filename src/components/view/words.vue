@@ -15,7 +15,7 @@
         </div>
         <el-dialog title="投稿 舔狗の语" v-model="sendWordDialog" custom-class="send_dialog">
             <p style="color: #808B96;">你可以投稿你当舔狗的经典语录，可以是正常的情话，也可以是土味情话。为了防止可能混入令人不适的内容，
-                你的投稿会进行<el-link type="primary" href="https://ai.baidu.com/tech/textcensoring">文本内容审核</el-link>，通过方予展示，
+                你的投稿会进行<el-link type="primary" href="https://ai.baidu.com/tech/textcensoring" target="_blank">文本内容审核</el-link>，通过方予展示，
                 如果被判断这个句子疑似有 暴恐违禁、政治敏感、恶意推广、低俗辱骂、低质灌水 等倾向，
                 则会拒绝这个句子进入内容库。</p>
             <el-form :model="wordsForm" ref="wordsForms" :rules="rules">

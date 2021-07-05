@@ -18,23 +18,35 @@ export const router = createRouter({
                     path: '/words',
                     name: 'words',
                     component: Words,
+                    meta: {
+                      title: '舔狗の语'
+                    }
                 },
                 {
                     path: '/diary',
                     name: 'diary',
                     component: Diary,
+                    meta: {
+                      title: '舔狗日记'
+                    }
                 }
             ]
         },
         {
             path: '/admin',
             name: 'admin',
-            component: Admin
+            component: Admin,
+            meta: {
+              title: '内容管理'
+            }
         },
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
+            meta: {
+              title: '登录'
+            }
         },
     ]
 });
